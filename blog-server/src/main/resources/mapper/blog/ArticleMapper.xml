@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.xyz.blog.mapper.ArticleMapper">
+    <!--添加-->
+    <insert id="add">
+        insert into tb_article(
+                article_pic,
+                article_name,
+                article_tag,
+                article_type,
+                article_state,
+                top_state,
+                publish_id,
+                create_time,
+                update_time,
+                article_read_count,
+                article_star_num,
+                article_comment_num,
+                article_remark,
+                article_content
+
+            )
+        values (
+                    #{articlePic},
+                    #{articleName},
+                    #{articleTag},
+                    #{articleType},
+                    #{articleState},
+                    #{topState},
+                    #{publishId},
+                    #{createTime},
+                    #{updateTime},
+                    #{articleReadCount},
+                    #{articleStarNum},
+                    #{articleCommentNum},
+                    #{articleRemark},
+                    #{articleContent}
+
+               )
+    </insert>
+    <!--更新-->
+    <update id="update">
+        update tb_article
+        set
+            article_pic=#{articlePic},
+            article_name=#{articleName},
+            article_tag=#{articleTag},
+            article_type=#{articleType},
+            article_state=#{articleState},
+            top_state=#{topState},
+            publish_id=#{publishId},
+            create_time=#{createTime},
+            update_time=#{updateTime},
+            article_read_count=#{ articleReadCount},
+            article_star_num=#{ articleStarNum},
+            article_comment_num=#{ articleCommentNum},
+            article_remark=#{articleRemark},
+            article_content=#{articleContent}
+        where id = #{id}
+    </update>
+    <!--删除-->
+    <delete id="delete">
+        delete from tb_article
+        where id =#{id}
+    </delete>
+    <!--批量删除-->
+    <delete id="patchDelete">
+        delete from tb_article where id in
+        <foreach collection="array" item="id" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+    <!--查询所有-->
+    <select id="findAll" resultType="cn.xyz.blog.domain.Article">
+        select * from tb_article
+    </select>
+    <!--查询单个-->
+    <select id="findOne" resultType="cn.xyz.blog.domain.Article">
+        select * from tb_article where id=#{id}
+    </select>
+    <!--分页-->
+    <select id="queryPage" resultType="cn.xyz.blog.domain.Article">
+        select a.*,t.type_name articleTypeName, e.username publishName from tb_article a
+            left join tb_article_type t on a.article_type=t.id
+            left join tb_employee e on a.publish_id=e.id
+        <where>
+            <if test="keyword != null and keyword != ''">
+                and a.article_name like concat('%',#{keyword},'%')
+            </if>
+        </where>
+    </select>
+</mapper>

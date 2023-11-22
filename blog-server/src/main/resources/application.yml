@@ -1,0 +1,62 @@
+spring:
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    password: 629015
+    jedis:
+      pool:
+        max-wait: 2000ms
+        min-idle: 2
+        max-idle: 8
+  mvc:
+    pathmatch:
+      # 使用swagger3.0的时候配置
+      matching-strategy: ant_path_matcher
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource # 连接池指定
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql:///blog?serverTimezone=Asia/Shanghai&useSSL=false&characterEncoding=utf-8
+    username: root
+    password: 629015
+    druid: #企业开发中可能会用到的配置
+      initial-size: 5 # 初始化时建立物理连接的个数
+      min-idle: 5 # 最小连接池连接数量，最小空闲数量
+      max-active: 20 # 最大连接池连接数量，最大活跃连接数
+      max-wait: 60000 # 配置获取连接等待超时的时间
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: SELECT 1
+      testWhileIdle: true
+      testOnBorrow: true
+      testOnReturn: false
+      poolPreparedStatements: true
+      maxPoolPreparedStatementPerConnectionSize: 20
+      filters: stat,wall
+      connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+      stat-view-servlet: # 德鲁伊连接池，内置提供一个web版的性能监控配置
+        allow: 0.0.0.0 # 允许哪些IP访问druid监控界面,多个IP以逗号分隔
+        login-username: admin # 设置登录帐号
+        login-password: 629015 # 设置登录密码
+        reset-enable: false # 是否允许重置数据
+        # url-pattern: /database/* # 默认访问根路径是：/druid/；也可以自定义设置
+# mybatis配置
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true #开启驼峰字段转换，自动映射时将有下划线的字段的数据映射给驼峰字段
+  type-aliases-package: cn.xyz.**.domain #扫描实体类所在的包
+  mapper-locations: classpath:mapper/**/*Mapper.xml #扫描Mapper.xml文件
+server:
+  port: 8080
+  servlet:
+    context-path: /
+# 分页配置
+pagehelper:
+  helper-dialect: mysql	#数据库方言：mysql, oracle, sqlite
+  reasonable: true #开启优化,在分页页码结果没有数据的时候,会显示有数据的页码数据,也就是当当前页<1时,返回第 1 页, 当当前页 > 最大页时, 返回最后一页的数据
+  support-methods-arguments: true #是否支持接口参数来传递分页参数，默认false
+  pageSizeZero: false #表示当 pageSize=0 时返回所有
+
+logging:
+  level:
+   cn.xyz: trace

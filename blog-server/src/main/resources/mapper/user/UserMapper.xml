@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.xyz.user.mapper.UserMapper">
+    <!--添加-->
+    <insert id="add">
+        insert into tb_user(user_name ,
+            real_name,
+            phone,
+            email,
+            salt,
+            password,
+            avatar,
+            remark,
+            logininfo_id)
+        values (
+                    #{userName},
+                    #{realName},
+                    #{phone},
+                    #{email},
+                    #{salt},
+                    #{password},
+                    #{avatar},
+                    #{remark},
+                    #{logininfoId}
+               )
+    </insert>
+    <!--更新-->
+    <update id="update">
+        update tb_user
+        set user_name=#{useName},
+        real_name=#{realName},
+        phone=#{phone},
+        email=#{email},
+        salt=#{salt},
+        avatar=#{avatar},
+        remark=#{remark},
+        logininfo_id=#{logininfoId}
+        where id = #{id}
+    </update>
+    <!--删除-->
+    <delete id="delete">
+        delete from tb_user
+        where id =#{id}
+    </delete>
+    <!--批量删除-->
+    <delete id="patchDelete">
+        delete from tb_user where id in
+        <foreach collection="array" item="id" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+    <!--查询所有-->
+    <select id="findAll" resultType="cn.xyz.user.domain.User">
+        select * from tb_user
+    </select>
+    <!--查询单个-->
+    <select id="findOne" resultType="cn.xyz.user.domain.User">
+        select * from tb_user where id=#{id}
+    </select>
+    <!--分页-->
+    <select id="queryPage" resultType="cn.xyz.user.domain.User">
+        select * from tb_user
+        <where>
+            <if test="keyword != null and keyword != ''">
+                and user_name like concat('%',#{keyword},'%')
+                or real_name like concat('%',#{keyword},'%')
+            </if>
+        </where>
+    </select>
+</mapper>
