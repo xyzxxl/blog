@@ -1,6 +1,7 @@
 package cn.xyz.blog.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -29,6 +30,7 @@ public class ArticleType {
   //保存父类型的名称
   private String parentTypeName;
   //添加一个集合，保存自己的所有子类型
+  @JsonInclude(JsonInclude.Include.NON_EMPTY)//类型树最后一级没有数据就不显示
   private List<ArticleType> children = new ArrayList<>();
 
 }

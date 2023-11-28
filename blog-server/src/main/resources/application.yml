@@ -1,4 +1,7 @@
 spring:
+  data:
+    mongodb:
+      uri: mongodb://root:123456@127.0.0.1:27017/blog?authSource=admin&authMechanism=SCRAM-SHA-1
   redis:
     database: 0
     host: 127.0.0.1

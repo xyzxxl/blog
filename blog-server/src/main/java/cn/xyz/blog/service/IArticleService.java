@@ -3,6 +3,7 @@ package cn.xyz.blog.service;
 
 import cn.xyz.blog.domain.Article;
 import cn.xyz.blog.query.ArticleQuery;
+import cn.xyz.blog.dto.ArticleDto;
 import com.github.pagehelper.PageInfo;
 
 import java.util.List;
@@ -26,4 +27,12 @@ public interface IArticleService {
     void patchDelete(Long[] ids);
 
     PageInfo<Article> queryPage(ArticleQuery articleQuery);
+
+    List<ArticleDto> countByArticleType();
+
+    List<ArticleDto> countByTime();
+
+    List<Article> dependenceArticles();
+
+    List<Article> dependenceArticles(Long id);
 }

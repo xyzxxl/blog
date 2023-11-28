@@ -4,7 +4,87 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f698e10d-9619-473d-b220-6307ec111705" name="Changes" comment="" />
+    <list default="true" id="f698e10d-9619-473d-b220-6307ec111705" name="Changes" comment="初始化">
+      <change afterPath="$PROJECT_DIR$/blog-common/src/main/java/cn/xyz/exception/BusinessException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-pojo/src/main/java/cn/xyz/blog/domain/Comment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-pojo/src/main/java/cn/xyz/blog/domain/Param.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-pojo/src/main/java/cn/xyz/blog/dto/ArticleDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-pojo/src/main/java/cn/xyz/blog/query/ParamQuery.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-pojo/src/main/java/cn/xyz/system/domain/Employee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-pojo/src/main/java/cn/xyz/system/domain/Logininfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-pojo/src/main/java/cn/xyz/system/domain/Menu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-pojo/src/main/java/cn/xyz/system/domain/Permission.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-pojo/src/main/java/cn/xyz/system/domain/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-pojo/src/main/java/cn/xyz/system/query/EmployeeQuery.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-pojo/src/main/java/cn/xyz/system/query/LogininfoQuery.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-pojo/src/main/java/cn/xyz/system/query/MenuQuery.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-pojo/src/main/java/cn/xyz/system/query/PermissionQuery.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-pojo/src/main/java/cn/xyz/system/query/RoleQuery.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-server/src/main/java/cn/xyz/blog/controller/CommentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-server/src/main/java/cn/xyz/blog/controller/ParamController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-server/src/main/java/cn/xyz/blog/mapper/ParamMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-server/src/main/java/cn/xyz/blog/repository/CommentRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-server/src/main/java/cn/xyz/blog/service/ICommentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-server/src/main/java/cn/xyz/blog/service/IParamService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-server/src/main/java/cn/xyz/blog/service/impl/CommentServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-server/src/main/java/cn/xyz/blog/service/impl/ParamServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-server/src/main/java/cn/xyz/system/annotation/PreAuthorize.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-server/src/main/java/cn/xyz/system/auth/PermissionScan.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-server/src/main/java/cn/xyz/system/auth/PermissionScanInitInstener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-server/src/main/java/cn/xyz/system/controller/EmployeeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-server/src/main/java/cn/xyz/system/controller/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-server/src/main/java/cn/xyz/system/controller/LogininfoController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-server/src/main/java/cn/xyz/system/controller/MenuController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-server/src/main/java/cn/xyz/system/controller/PermissionController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-server/src/main/java/cn/xyz/system/controller/RoleController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-server/src/main/java/cn/xyz/system/dto/LoginDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-server/src/main/java/cn/xyz/system/jwt/JwtUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-server/src/main/java/cn/xyz/system/jwt/Payload.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-server/src/main/java/cn/xyz/system/mapper/EmployeeMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-server/src/main/java/cn/xyz/system/mapper/LogininfoMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-server/src/main/java/cn/xyz/system/mapper/MenuMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-server/src/main/java/cn/xyz/system/mapper/PermissionMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-server/src/main/java/cn/xyz/system/mapper/RoleMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-server/src/main/java/cn/xyz/system/service/IEmployeeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-server/src/main/java/cn/xyz/system/service/ILogininfoService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-server/src/main/java/cn/xyz/system/service/IMenuService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-server/src/main/java/cn/xyz/system/service/IPermissionService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-server/src/main/java/cn/xyz/system/service/IRoleService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-server/src/main/java/cn/xyz/system/service/impl/EmployeeServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-server/src/main/java/cn/xyz/system/service/impl/LogininfoServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-server/src/main/java/cn/xyz/system/service/impl/MenuServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-server/src/main/java/cn/xyz/system/service/impl/PermissionServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-server/src/main/java/cn/xyz/system/service/impl/RoleServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-server/src/main/resources/mapper/blog/ParamMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-server/src/main/resources/mapper/system/EmployeeMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-server/src/main/resources/mapper/system/LogininfoMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-server/src/main/resources/mapper/system/MenuMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-server/src/main/resources/mapper/system/PermissionMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-server/src/main/resources/mapper/system/RoleMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-server/src/test/java/cn/xyz/user/MongobTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-server/src/test/java/cn/xyz/user/domain/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e3ebeeb2-c890-4ed3-b6e3-b4613a53e8a1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e3ebeeb2-c890-4ed3-b6e3-b4613a53e8a1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog-common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/blog-common/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog-common/src/main/java/cn/xyz/config/RedisConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/blog-common/src/main/java/cn/xyz/config/RedisConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog-common/src/test/java/cn/xyz/user/AppTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog-pojo/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/blog-pojo/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog-pojo/src/main/java/cn/xyz/blog/domain/Article.java" beforeDir="false" afterPath="$PROJECT_DIR$/blog-pojo/src/main/java/cn/xyz/blog/domain/Article.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog-pojo/src/main/java/cn/xyz/blog/domain/ArticleType.java" beforeDir="false" afterPath="$PROJECT_DIR$/blog-pojo/src/main/java/cn/xyz/blog/domain/ArticleType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog-pojo/src/main/java/cn/xyz/blog/query/ArticleQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/blog-pojo/src/main/java/cn/xyz/blog/query/ArticleQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog-pojo/src/test/java/cn/xyz/user/AppTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/blog-server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog-server/src/main/java/cn/xyz/BlogApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/blog-server/src/main/java/cn/xyz/BlogApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog-server/src/main/java/cn/xyz/blog/controller/ArticleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/blog-server/src/main/java/cn/xyz/blog/controller/ArticleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog-server/src/main/java/cn/xyz/blog/mapper/ArticleMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/blog-server/src/main/java/cn/xyz/blog/mapper/ArticleMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog-server/src/main/java/cn/xyz/blog/service/IArticleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/blog-server/src/main/java/cn/xyz/blog/service/IArticleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog-server/src/main/java/cn/xyz/blog/service/impl/ArticleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/blog-server/src/main/java/cn/xyz/blog/service/impl/ArticleServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog-server/src/main/java/cn/xyz/blog/service/impl/ArticleTypeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/blog-server/src/main/java/cn/xyz/blog/service/impl/ArticleTypeServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog-server/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/blog-server/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog-server/src/main/resources/mapper/blog/ArticleMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/blog-server/src/main/resources/mapper/blog/ArticleMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,12 +98,26 @@
       <list>
         <option value="mapper" />
         <option value="Interface" />
+        <option value="AnnotationType" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="5735b5db-0c8c-4287-b61d-f46de62b1038" />
+        <option name="url" value="https://github.com/xyzxxl/blog.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/blog-server/src/main/resources/mapper.blog/ArticleType.xml" root0="FORCE_HIGHLIGHTING" />
@@ -38,7 +132,9 @@
     </option>
   </component>
   <component name="ProjectId" id="2YIhcGMyzABysW9fVwIBKFnMpPE" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -53,8 +149,9 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
     "jdk.selected.JAVA_MODULE": "17 (2)",
-    "last_opened_file_path": "D:/Workspace-IDEA/springboot/blog",
+    "last_opened_file_path": "D:/Workspace-IDEA/springboot/blog/blog-server/src/main/resources/mapper/system",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -62,8 +159,8 @@
     "project.structure.last.edited": "SDKs",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "MavenSettings",
-    "spring.configuration.checksum": "d5e010f833ea6db0ef60fed29f3c54b1",
+    "settings.editor.selected.configurable": "reference.settings.ide.settings.new.ui",
+    "spring.configuration.checksum": "7ea823c67616fa5baf3a43b224eccf38",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -78,14 +175,16 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="cn.xyz.system.service.impl" />
+      <recent name="cn.xyz.blog.service.impl" />
       <recent name="cn.xyz.user.service.impl" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Workspace-IDEA\springboot\blog\blog-server\src\main\resources\mapper\system" />
+      <recent name="D:\Workspace-IDEA\springboot\blog\blog-server\src\main\java\cn\xyz\system" />
+      <recent name="D:\Workspace-IDEA\springboot\blog\blog-server\src\main\resources\mapper\blog" />
       <recent name="D:\Workspace-IDEA\springboot\blog\blog-server\src\main\resources\mapper\yyy" />
       <recent name="D:\Workspace-IDEA\springboot\blog\blog-pojo\src\main\java\cn\xyz\yyy" />
-      <recent name="D:\Workspace-IDEA\springboot\blog\blog-server\src\main\java\cn\xyz\yyy" />
-      <recent name="D:\Workspace-IDEA\springboot\blog\blog-server\src\main\resources\mapper\user\blog" />
-      <recent name="D:\Workspace-IDEA\springboot\blog\blog-server\src\main\resources\mapper.blog" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Workspace-IDEA\springboot\blog\blog-server\src\main\resources\mapper\blog" />
@@ -96,14 +195,72 @@
       <recent name="cn.xyz" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="cn.xyz.blog" />
-      <recent name="cn.xyz.blog.service.impl" />
-      <recent name="cn.xyz.blog.service" />
-      <recent name="cn.xyz.blog.query" />
-      <recent name="cn.xyz.user.query" />
+      <recent name="cn.xyz.system.controller" />
+      <recent name="cn.xyz.system.mapper" />
+      <recent name="cn.xyz.system.service.impl" />
+      <recent name="cn.xyz.system.service" />
+      <recent name="cn.xyz.system.query" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Spring Boot.BlogApp">
+    <configuration name="JwtUtil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cn.xyz.system.jwt.JwtUtil" />
+      <module name="blog-server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.xyz.system.jwt.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LogininfoServiceImpl" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cn.xyz.system.service.impl.LogininfoServiceImpl" />
+      <module name="blog-server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.xyz.system.service.impl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MongobTest.test1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="blog-server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.xyz.user.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cn.xyz.user" />
+      <option name="MAIN_CLASS_NAME" value="cn.xyz.user.MongobTest" />
+      <option name="METHOD_NAME" value="test1" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MongobTest.test2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="blog-server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.xyz.user.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cn.xyz.user" />
+      <option name="MAIN_CLASS_NAME" value="cn.xyz.user.MongobTest" />
+      <option name="METHOD_NAME" value="test2" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="BlogApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="blog-server" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="cn.xyz.BlogApp" />
@@ -120,6 +277,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.BlogApp" />
+        <item itemvalue="Application.LogininfoServiceImpl" />
+        <item itemvalue="Application.JwtUtil" />
+        <item itemvalue="JUnit.MongobTest.test2" />
+        <item itemvalue="JUnit.MongobTest.test1" />
       </list>
     </recent_temporary>
   </component>
@@ -143,6 +304,16 @@
       <workItem from="1700548649837" duration="4882000" />
       <workItem from="1700556717994" duration="5670000" />
       <workItem from="1700654591292" duration="4773000" />
+      <workItem from="1700702002686" duration="17247000" />
+      <workItem from="1700791663535" duration="16297000" />
+      <workItem from="1700878062491" duration="19295000" />
+      <workItem from="1700960286411" duration="9841000" />
+      <workItem from="1701047855556" duration="135000" />
+      <workItem from="1701047998964" duration="778000" />
+      <workItem from="1701048784241" duration="5202000" />
+      <workItem from="1701061067875" duration="12791000" />
+      <workItem from="1701133402883" duration="13404000" />
+      <workItem from="1701170016510" duration="71000" />
     </task>
     <task id="LOCAL-00001" summary="初始化">
       <created>1700666579768</created>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.xyz.system.mapper.MenuMapper">
+    <!--添加-->
+    <insert id="add">
+        insert into tb_menu(
+                            id,
+                            name,
+                            component,
+                            url,
+                            icon,
+                            `index`,
+                            parent_id
+            )
+        values (
+                    #{id},
+                    #{name},
+                    #{component},
+                    #{url},
+                    #{icon},
+                    #{index},
+                    #{parentId}
+
+               )
+    </insert>
+    <!--更新-->
+    <update id="update">
+        update tb_menu
+        set
+            id=#{id},
+            name=#{name},
+            component=#{component},
+            url=#{url},
+            icon=#{icon},
+            `index`=#{index},
+            parent_id=#{parentId}
+        where id = #{id}
+    </update>
+    <!--删除-->
+    <delete id="delete">
+        delete from tb_menu
+        where id =#{id}
+    </delete>
+    <!--批量删除-->
+    <delete id="patchDelete">
+        delete from tb_menu where id in
+        <foreach collection="array" item="id" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+    <!--查询所有-->
+    <select id="findAll" resultType="cn.xyz.system.domain.Menu">
+        select * from tb_menu
+    </select>
+    <!--查询单个-->
+    <select id="findOne" resultType="cn.xyz.system.domain.Menu">
+        select * from tb_menu where id=#{id}
+    </select>
+    <!--分页-->
+    <select id="queryPage" resultType="cn.xyz.system.domain.Menu">
+        select s.*,p.name parentMenuName from tb_menu s
+        left join tb_menu p on s.parent_id = p.id
+        <where>
+            <if test="keyword != null and keyword != ''">
+                and s.name like concat('%',#{keyword},'%')
+            </if>
+        </where>
+    </select>
+</mapper>

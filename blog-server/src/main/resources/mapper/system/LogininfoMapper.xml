@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.xyz.system.mapper.LogininfoMapper">
+    <!--添加-->
+    <insert id="add">
+        insert into tb_logininfo(
+                            id,
+                            username,
+                            phone,
+                            email,
+                            salt,
+                            password,
+                            type,
+                            disable
+
+             )
+        values (
+                    #{id},
+                    #{username},
+                    #{phone},
+                    #{email},
+                    #{salt},
+                    #{password},
+                    #{type},
+                    #{disable}
+
+               )
+    </insert>
+    <!--更新-->
+    <update id="update">
+        update tb_logininfo
+        set
+            id=#{id},
+            username=#{username},
+            phone=#{phone},
+            email=#{email},
+            salt=#{salt},
+            password=#{password},
+            type=#{type},
+            disable=#{disable}
+        where id = #{id}
+    </update>
+    <!--删除-->
+    <delete id="delete">
+        delete from tb_logininfo
+        where id =#{id}
+    </delete>
+    <!--批量删除-->
+    <delete id="patchDelete">
+        delete from tb_logininfo where id in
+        <foreach collection="array" item="id" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+    <!--查询所有-->
+    <select id="findAll" resultType="cn.xyz.system.domain.Logininfo">
+        select * from tb_logininfo
+    </select>
+    <!--查询单个-->
+    <select id="findOne" resultType="cn.xyz.system.domain.Logininfo">
+        select * from tb_logininfo where id=#{id}
+    </select>
+    <!--分页-->
+    <select id="queryPage" resultType="cn.xyz.system.domain.Logininfo">
+        select * from tb_logininfo
+        <where>
+            <if test="keyword != null and keyword != ''">
+                and logininfo_name like concat('%',#{keyword},'%')
+                or real_name like concat('%',#{keyword},'%')
+            </if>
+        </where>
+    </select>
+    <select id="findByAccount" resultType="cn.xyz.system.domain.Logininfo">
+        select * from tb_logininfo where  type = #{type} and (username = #{account} or phone=#{account} or email=#{account})
+    </select>
+    <select id="findPermissionByLogininfoId" resultType="java.lang.String">
+        select tp.sn from tb_employee te
+        join tb_employee_role ter on te.id = ter.employee_id
+        join tb_role_permission trp on ter.role_id = trp.role_id
+        join tb_permission tp on trp.permission_id = tp.id
+        where te.logininfo_id=#{id}
+    </select>
+    <select id="findMenuByLogininfoId" resultType="cn.xyz.system.domain.Menu">
+        select * from tb_employee te
+        join tb_employee_role ter on te.id = ter.employee_id
+        join tb_role_menu trm on ter.role_id = trm.role_id
+        join tb_menu tm on trm.menu_id = tm.id
+        where te.logininfo_id=#{id}
+    </select>
+</mapper>

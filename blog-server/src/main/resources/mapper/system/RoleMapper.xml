@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.xyz.system.mapper.RoleMapper">
+    <!--添加-->
+    <insert id="add">
+        insert into tb_role(
+                id,
+                name,
+                sn
+            )
+        values (
+                    #{id},
+                    #{name},
+                    #{sn}
+               )
+    </insert>
+    <!--更新-->
+    <update id="update">
+        update tb_role
+        set
+            id= #{id},
+            name= #{name},
+            sn= #{sn}
+        where id = #{id}
+    </update>
+    <!--删除-->
+    <delete id="delete">
+        delete from tb_role
+        where id =#{id}
+    </delete>
+    <!--批量删除-->
+    <delete id="patchDelete">
+        delete from tb_role where id in
+        <foreach collection="array" item="id" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+    <!--查询所有-->
+    <select id="findAll" resultType="cn.xyz.system.domain.Role">
+        select * from tb_role
+    </select>
+    <!--查询单个-->
+    <select id="findOne" resultType="cn.xyz.system.domain.Role">
+        select * from tb_role where id=#{id}
+    </select>
+    <!--分页-->
+    <select id="queryPage" resultMap="RoleMap">
+        select * from tb_role
+        <where>
+            <if test="keyword != null and keyword != ''">
+                and name like concat('%',#{keyword},'%')
+            </if>
+        </where>
+    </select>
+    <resultMap id="RoleMap" type="cn.xyz.system.domain.Role">
+        <id column="id" property="id"></id>
+        <result column="name" property="name"></result>
+        <result column="sn" property="sn"></result>
+        <collection property="permissions" column="id" select="findPermissionByRoleId"></collection>
+        <collection property="menus" column="id" select="FindMenuByRoleId"></collection>
+    </resultMap>
+    <select id="findPermissionByRoleId" resultType="long">
+        select permission_id from tb_role_permission where role_id=#{id}
+    </select>
+    <select id="FindMenuByRoleId" resultType="long">
+        select menu_id from tb_role_menu where role_id=#{id}
+    </select>
+</mapper>

@@ -7,6 +7,7 @@ import cn.xyz.blog.service.IArticleTypeService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -17,6 +18,7 @@ import java.util.List;
 
 @Service
 @Transactional(readOnly = true,propagation = Propagation.SUPPORTS)
+@CacheConfig(cacheNames = "articleType")//将缓存名统一提到类上面
 public class ArticleTypeServiceImpl implements IArticleTypeService {
     @Autowired
     private ArticleTypeMapper articleTypeMapper;
@@ -66,6 +68,7 @@ public class ArticleTypeServiceImpl implements IArticleTypeService {
         List<ArticleType> typeTree = new ArrayList<>();
 
         List<ArticleType> types = articleTypeMapper.findAll();
+
         for (ArticleType type : types) {
             if (type.getParentId() == null) {//顶级类型
                 typeTree.add(type);

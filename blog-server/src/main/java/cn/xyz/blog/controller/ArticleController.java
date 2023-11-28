@@ -4,6 +4,7 @@ package cn.xyz.blog.controller;
 import cn.xyz.blog.domain.Article;
 import cn.xyz.blog.query.ArticleQuery;
 import cn.xyz.blog.service.IArticleService;
+import cn.xyz.blog.dto.ArticleDto;
 import cn.xyz.util.JsonResult;
 import com.github.pagehelper.PageInfo;
 import io.swagger.annotations.Api;
@@ -70,12 +71,11 @@ public class ArticleController {
             if (article.getId() == null) {
                 //添加 添加没有传id 所以可以判断
                 iArticleService.add(article);
-                return JsonResult.success();
             } else {
                 //修改
                 iArticleService.update(article);
-                return JsonResult.success();
             }
+            return JsonResult.success();
         } catch (Exception e) {
             e.printStackTrace();
             return JsonResult.error();
@@ -100,5 +100,18 @@ public class ArticleController {
         return iArticleService.queryPage(articleQuery);
     }
 
+    @GetMapping("/countByArticleType")
+    public List<ArticleDto> countByArticleType() {
+        return iArticleService.countByArticleType();
+    }
+
+    @GetMapping("/countByTime")
+    public List<ArticleDto> countByTime() {
+        return iArticleService.countByTime();
+    }
+    @GetMapping("/dependenceArticles/{id}")
+    public List<Article> dependenceArticles(@PathVariable("id")Long id) {
+        return iArticleService.dependenceArticles();
+    }
 
 }

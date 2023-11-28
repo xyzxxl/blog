@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.xyz.system.mapper.PermissionMapper">
+
+
+    <!--查询所有-->
+    <select id="findAll" resultType="cn.xyz.system.domain.Permission">
+        select * from tb_permission
+    </select>
+
+    <!--分页-->
+    <select id="queryPage" resultType="cn.xyz.system.domain.Permission">
+        select * from tb_permission
+        <where>
+            <if test="keyword != null and keyword != ''">
+                and name like concat('%',#{keyword},'%')
+            </if>
+
+        </where>
+    </select>
+
+    <select id="delete" resultType="cn.xyz.system.domain.Permission">
+        delete from tb_permission
+        where id =#{id}
+    </select>
+
+    <select id="selectBySn" resultType="cn.xyz.system.domain.Permission">
+        select * from tb_permission where sn=#{sn}
+    </select>
+
+
+
+
+
+</mapper>

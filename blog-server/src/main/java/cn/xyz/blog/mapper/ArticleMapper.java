@@ -2,6 +2,7 @@ package cn.xyz.blog.mapper;
 
 
 import cn.xyz.blog.domain.Article;
+import cn.xyz.blog.dto.ArticleDto;
 import cn.xyz.blog.query.ArticleQuery;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -27,4 +28,11 @@ public interface ArticleMapper {
     void patchDelete(Long[] ids);
     //操作分页
     List<Article> queryPage(ArticleQuery articleQuery);
+
+
+    List<ArticleDto> countByArticleType();
+
+    List<ArticleDto> countByTime();
+
+    List<Article> dependenceArticles(Long id);
 }

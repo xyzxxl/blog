@@ -18,14 +18,12 @@
     </properties>
 
     <dependencies>
-
         <!--统一管理pojo子模块版本-->
         <dependency>
             <groupId>cn.xyz</groupId>
             <artifactId>blog-pojo</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-
         <!-- 数据库的jar包 -->
         <dependency>
             <groupId>mysql</groupId>
@@ -51,6 +49,9 @@
             <artifactId>pagehelper-spring-boot-starter</artifactId>
             <version>${pagehelper.version}</version>
         </dependency>
+
+
+
         <!-- 后端处理JSON的依赖 -->
         <dependency>
             <groupId>com.alibaba</groupId>
@@ -58,10 +59,25 @@
             <version>${fastjson.version}</version>
         </dependency>
 
+
+
+        <!-- 在SpringBoot项目中使用-->
+        <!-- pagehelper分页插件-->
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
+            <version>1.4.7</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-mongodb</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
         </dependency>
-
     </dependencies>
 </project>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.xyz.system.mapper.EmployeeMapper">
+    <!--添加-->
+    <insert id="add" useGeneratedKeys="true" keyColumn="id" keyProperty="id" >
+        insert into tb_employee(
+                    id,
+                    username,
+                    phone,
+                    email,
+                    salt,
+                    password,
+                    age,
+                    state,
+                    logininfo_id
+            )
+        values (
+                    #{id},
+                    #{username},
+                    #{phone},
+                    #{email},
+                    #{salt},
+                    #{password},
+                    #{age},
+                    #{state},
+                    #{logininfoId}
+
+               )
+    </insert>
+    <!--更新-->
+    <update id="update"  useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+        update tb_employee
+        set
+            id=#{id},
+            username=#{username},
+            phone=#{phone},
+            email=#{email},
+            salt=#{salt},
+            password=#{password},
+            age=#{age},
+            state=#{state},
+            logininfo_id=#{logininfoId}
+        where id = #{id}
+    </update>
+    <!--删除-->
+    <delete id="deleteRoleByEmployeeId">
+        delete from tb_employee_role
+        where employee_id = #{id}
+    </delete>
+    <!--批量删除-->
+    <delete id="patchDelete">
+        delete from tb_employee where id in
+        <foreach collection="array" item="id" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+    <delete id="delete"></delete>
+    <!--查询所有-->
+    <select id="findAll" resultType="cn.xyz.system.domain.Employee">
+        select * from tb_employee
+    </select>
+    <!--查询单个-->
+    <select id="findOne" resultType="cn.xyz.system.domain.Employee">
+        select * from tb_employee where id=#{id}
+    </select>
+    <!--分页-->
+    <select id="queryPage" resultType="cn.xyz.system.domain.Employee">
+        select * from tb_employee
+        <where>
+            <if test="keyword != null and keyword != ''">
+                and user_name like concat('%',#{keyword},'%')
+                or real_name like concat('%',#{keyword},'%')
+            </if>
+        </where>
+    </select>
+    <select id="findRoleByEmployeeId" resultType="cn.xyz.system.domain.Role">
+        select * from tb_employee_role ter
+            join tb_role tr on ter.role_id = tr.id
+        where ter.employee_id = #{id}
+    </select>
+
+    <select id="addEmployee">
+        insert into tb_employee_role (employee_id, role_id) values
+        <foreach collection="roles" separator="," item="rid">(#{id},#{rid})</foreach>
+    </select>
+
+    <select id="addEmployeeRole">
+        insert into tb_employee_role (employee_id, role_id) values
+             <foreach collection="roles" separator="," item="rid">(#{id},#{rid})</foreach>
+    </select>
+</mapper>

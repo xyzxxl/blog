@@ -6,5 +6,5 @@ import lombok.Data;
 
 @Data
 public class ArticleQuery extends BaseQuery {
-
+    private Integer articleState;
 }

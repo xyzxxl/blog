@@ -4,7 +4,7 @@
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.xyz.blog.mapper.ArticleMapper">
     <!--添加-->
-    <insert id="add">
+    <insert id="add" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
         insert into tb_article(
                 article_pic,
                 article_name,
@@ -78,7 +78,9 @@
     </select>
     <!--查询单个-->
     <select id="findOne" resultType="cn.xyz.blog.domain.Article">
-        select * from tb_article where id=#{id}
+        select a.*,t.type_name articleTypeName  from tb_article a
+        left join tb_article_type t on a.article_type=t.id
+        where a.id=#{id}
     </select>
     <!--分页-->
     <select id="queryPage" resultType="cn.xyz.blog.domain.Article">
@@ -89,6 +91,31 @@
             <if test="keyword != null and keyword != ''">
                 and a.article_name like concat('%',#{keyword},'%')
             </if>
+            <if test="articleState != null">
+                and a.article_state = #{articleState}
+            </if>
         </where>
     </select>
+
+    <!--根据文章类型统计发布的文章数量-->
+    <select id="countByArticleType" resultType="cn.xyz.blog.dto.ArticleDto">
+        select t.type_name articleTypeName,count(*) num,t.id articleTypeId from tb_article a join tb_article_type t
+        on a.article_type = t.id
+        where a.article_state = 1
+        group by a.article_type
+    </select>
+
+    <select id="countByTime" resultType="cn.xyz.blog.dto.ArticleDto">
+        select date_format(create_time,'%Y年%m月') time,count(*) count from tb_article
+        where article_state = 1
+        group by time
+    </select>
+
+    <select id="dependenceArticles" resultType="cn.xyz.blog.domain.Article">
+        select * from tb_article
+        where article_tag =(select article_tag from tb_article where id=#{id})
+        and article_state = 1
+        and id !=#{id}
+    </select>
+
 </mapper>
